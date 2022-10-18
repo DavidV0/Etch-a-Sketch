@@ -8,9 +8,13 @@ function create16x16GridDivs(){
     for(let i = 0; i < 16; i++){
         let div = document.createElement("div");
         container.appendChild(div);
+        div.classList.add("grid")
     }
 }
 
 create16x16GridDivs();
 container.classList.add("container");
 document.body.appendChild(container);
+
+const btn1 = document.getElementById("btn1")
+btn1.addEventListener("click", alert("How many boxes"))
