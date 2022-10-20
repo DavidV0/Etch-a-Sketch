@@ -4,15 +4,16 @@ const container = document.createElement("div");
 
 console.log(body);
 
-function create16x16GridDivs(){
-    for(let i = 0; i < 16; i++){
+function createDivs(number){
+    
+    for(let i = 0; i < number; i++){
         let div = document.createElement("div");
         container.appendChild(div);
         div.classList.add("grid")
     }
 }
 
-create16x16GridDivs();
+createDivs(16);
 container.classList.add("container");
 document.body.appendChild(container);
 
@@ -25,11 +26,18 @@ function removeGrid(){
 }
 
 function createNewGrid(number){
-    removeGrid();
+    if(number < 100){
+        removeGrid();
+        createDivs(number);
+    }    
 }
 
 const btn1 = document.getElementById("btn1")
 btn1.addEventListener("click", event => {
     let promt = prompt("Enter a number");
-    createNewGrid(promt);
+    if(promt >100){
+        promt = promt("Take a number under 100");
+    }else{
+        createNewGrid(promt);
+    }    
 });
