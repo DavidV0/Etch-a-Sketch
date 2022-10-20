@@ -16,5 +16,20 @@ create16x16GridDivs();
 container.classList.add("container");
 document.body.appendChild(container);
 
+function removeGrid(){
+    let child = container.lastElementChild;
+    while(child){
+        container.removeChild(child);
+        child = container.lastElementChild;
+    }
+}
+
+function createNewGrid(number){
+    removeGrid();
+}
+
 const btn1 = document.getElementById("btn1")
-btn1.addEventListener("click", alert("How many boxes"))
+btn1.addEventListener("click", event => {
+    let promt = prompt("Enter a number");
+    createNewGrid(promt);
+});
